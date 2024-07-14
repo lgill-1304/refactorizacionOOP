@@ -21,7 +21,7 @@ class Mapa: #se usa para crear metodos y manipular el mapa
             if 0 <= obstaculo[0] < self.filas and 0 <= obstaculo[1] < self.columnas:
                 self.mapa[obstaculo[0]][obstaculo[1]] = 0
 
-    def generar_obstaculos_aleatorios(self, num_obstaculos):
+    def generar_obstaculos_aleatorios(self, num_obstaculos): 
         obstaculos = set()
         while len(obstaculos) < num_obstaculos:
             x = random.randint(0, self.filas - 1)
@@ -102,17 +102,10 @@ if __name__ == "__main__":
 
     obstaculos_quitar = []  # Inicializar lista para quitar obstáculos
 
-    modo = input("Selecciona el modo de ingreso de obstáculos (1: Manual, 2: Aleatorio,): ")
+    modo = input("Selecciona el ingreso de obstáculos (1: Aleatorio,): ")
 
     if modo == '1':
         obstaculos = []
-        while True:
-            entrada = input("Ingresa las coordenadas de un obstáculo (formato x,y) o 'fin' para terminar: ")
-            if entrada.lower() == 'fin':
-                break
-            x, y = map(int, entrada.split(','))
-            obstaculos.append((x, y))
-    elif modo == '2':
         num_obstaculos = int(input("Ingresa el número de obstáculos aleatorios: "))
         obstaculos = mapa.generar_obstaculos_aleatorios(num_obstaculos)
     
